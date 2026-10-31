@@ -188,8 +188,8 @@ def build_pdf_report(output_filename: str):
     # =========================================================================
     header_table_data = [
         [
-            Paragraph("<b>EAST POINT COLLEGE OF MEDICAL SCIENCES & RESEARCH CENTRE</b><br/>"
-                      "<font size=7 color='#64748b'>Jnana Prabha Campus, Bidarahalli, Virgo Nagar Post, Bangalore - 560049</font>", body_style),
+            Paragraph("<b>EAST POINT HOSPITAL</b> &nbsp;<font size=8 color='#b91c1c'><b>[POC]</b></font><br/>"
+                      "<font size=7 color='#64748b'>Powered by Node4 Tech · Jnana Prabha Campus, Bidarahalli, Bangalore - 560049</font>", body_style),
             Paragraph("<font size=7 color='#b91c1c'><b>NMC REGULATORY AUDIT SUITE</b><br/>"
                       "DOC REF: EPH/MRD/POC-EXEC/2026-v2.0<br/>"
                       "SCALE: 2,800+ ENCOUNTERS</font>", ParagraphStyle('HRight', parent=body_style, alignment=2))
@@ -218,7 +218,7 @@ def build_pdf_report(output_filename: str):
         [
             Paragraph("<b>Operational Modules:</b> ER, Pharmacy, Billing, Blood Bank", table_cell_style),
             Paragraph("<b>Audit Protection:</b> 01:00 PM Mid-Day Scrubber", table_cell_style),
-            Paragraph("<b>Host Architecture:</b> Port 8050 (Zero Collision)", table_cell_style)
+            Paragraph("<b>Live Cloud URL:</b> eastpoint-emr-poc.vercel.app", table_cell_style)
         ]
     ]
     t_meta = Table(meta_box, colWidths=[174, 174, 175])
@@ -793,17 +793,18 @@ def build_pdf_report(output_filename: str):
         "• <b>Backend Framework:</b> Python 3.14 · FastAPI · Uvicorn ASGI Server · In-memory indexed patient registry (&lt;15ms latency).<br/>"
         "• <b>Frontend Architecture:</b> React 18 · Vite 5 · Tailwind CSS · Lucide Icons · Zero-film HTML5 DICOM PACS canvas.<br/>"
         "• <b>Vector PDF Pipeline:</b> ReportLab 5.1.0 · Strict physical hospital typography · Form EPH/MRD reproductions.<br/>"
-        "• <b>Host Environment:</b> Local application service running on Port 8050 (`http://127.0.0.1:8050`) ensuring zero port collision.",
+        "• <b>Cloud Deployment:</b> Live Production on Vercel: <u>https://eastpoint-emr-poc.vercel.app</u> with unified serverless routing.<br/>"
+        "• <b>Local Environment:</b> Standalone development service running on Port 8050 (`http://127.0.0.1:8050`).",
         body_style
     ))
-    story.append(Spacer(1, 10))
+    story.append(Spacer(1, 8))
 
     # Formal Verification Sign-off block
     signoff_data = [
         [
             Paragraph("<b>Submitted By:</b><br/>"
-                      "EMR Engineering & Clinical Informatics Team<br/>"
-                      "Proof of Concept Implementation Division<br/>"
+                      "Node4 Tech Engineering Team<br/>"
+                      "EMR Implementation & Clinical Systems Division<br/>"
                       "Bangalore, Karnataka", table_cell_style),
             Paragraph("<b>Reviewed & Verified By:</b><br/>"
                       "Medical Superintendent & MRD In-Charge<br/>"

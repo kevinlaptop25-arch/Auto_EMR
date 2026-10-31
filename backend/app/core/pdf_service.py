@@ -20,7 +20,7 @@ class PdfGeneratorService:
 
         header_data = [
             [
-                Paragraph("<b>EAST POINT HOSPITAL</b><br/><font size=7>East Point College of Medical Sciences & Research Centre<br/>Bidarahalli, Virgo Nagar Post, Bangalore - 560049</font>", styles["Normal"]),
+                Paragraph("<b>EAST POINT HOSPITAL</b> &nbsp;<font size=7 color='#990000'><b>[POC]</b></font><br/><font size=7>Powered by Node4 Tech · Jnana Prabha Campus, Bidarahalli<br/>Bangalore - 560049</font>", styles["Normal"]),
                 Paragraph(f"<font size=8><b>{form_code}</b><br/><b>AB_ARK Insurance/Cashless</b><br/>NABH / NMC Accredited</font>", ParagraphStyle('HRight', alignment=2))
             ]
         ]
