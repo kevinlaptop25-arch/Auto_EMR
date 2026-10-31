@@ -1,0 +1,30 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+
+# Node & Frontend
+node_modules/
+frontend/node_modules/
+frontend/dist/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment & Temp
+.env
+.env.local
+.DS_Store
+.playwright-mcp/
+*.log
+# Debug screenshots & scratch scripts
+ui_*.png
+click_*.png
+transcribe*
+meeting_transcript.txt
+emr.db
+/tmp/emr_*
+

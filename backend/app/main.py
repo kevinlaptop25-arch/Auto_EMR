@@ -1,0 +1,60 @@
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+import os
+
+from app.api.routes_patients import router as patients_router
+from app.api.routes_clinical import router as clinical_router
+from app.api.routes_labs import router as labs_router
+from app.api.routes_pacs import router as pacs_router
+from app.api.routes_abdm import router as abdm_router
+from app.api.routes_audit import router as audit_router
+from app.api.routes_emergency import router as emergency_router
+from app.api.routes_pharmacy import router as pharmacy_router
+from app.api.routes_billing import router as billing_router
+from app.api.routes_bloodbank import router as bloodbank_router
+
+app = FastAPI(
+    title="East Point Hospital - Automated EMR Engine & NMC Audit Simulator",
+    description="Functional POC demonstrating structurally accurate synthetic patient records, strict clinical logic rules, live timeline logic, digitized PDF/PACS audit trails, full Pharmacy, Billing, Blood Bank, Emergency modules, and ABDM M1/M2/M3 workflows.",
+    version="2.0.0"
+)
+
+# Enable CORS for frontend dashboard
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# Include API Routers
+app.include_router(patients_router, prefix="/api")
+app.include_router(clinical_router, prefix="/api")
+app.include_router(labs_router, prefix="/api")
+app.include_router(pacs_router, prefix="/api")
+app.include_router(abdm_router, prefix="/api")
+app.include_router(audit_router, prefix="/api")
+app.include_router(emergency_router, prefix="/api")
+app.include_router(pharmacy_router, prefix="/api")
+app.include_router(billing_router, prefix="/api")
+app.include_router(bloodbank_router, prefix="/api")
+
+# Serve frontend build if present
+frontend_dist = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "frontend", "dist"))
+if os.path.exists(frontend_dist):
+    app.mount("/", StaticFiles(directory=frontend_dist, html=True), name="static")
+else:
+    @app.get("/")
+    def root():
+        return {
+            "hospital": "East Point Hospital & Research Centre",
+            "system": "Automated Electronic Medical Record (EMR) Engine",
+            "compliance": ["NMC 2025 Audit Standard", "ABDM M1/M2/M3", "NABH Indian Hospital Formats"],
+            "docs_url": "/docs"
+        }
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run("app.main:app", host="0.0.0.0", port=8000, reload=True)
