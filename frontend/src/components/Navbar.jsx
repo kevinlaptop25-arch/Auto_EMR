@@ -1,5 +1,5 @@
 import React from 'react';
-import { Clock, ShieldCheck, RefreshCw } from 'lucide-react';
+import { Clock, RefreshCw } from 'lucide-react';
 
 export default function Navbar({ timeline, activePreset, onPresetChange, onRefreshCohort, isGenerating }) {
   const currentHourMinute = timeline?.hour_minute || "13:00";
@@ -115,18 +115,8 @@ export default function Navbar({ timeline, activePreset, onPresetChange, onRefre
           </div>
         </div>
 
-        {/* Right Status */}
+        {/* Right Status / Reset */}
         <div className="flex items-center space-x-2 shrink-0">
-          <div className="hidden xl:flex items-center space-x-1.5 bg-emerald-950/70 border border-emerald-800/80 text-emerald-300 px-2.5 py-1 rounded-lg text-xs font-medium">
-            <ShieldCheck className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-            <span>2,800+ Encounters: <b>2.6k OPD · 200 IPD</b></span>
-          </div>
-
-          <div className="hidden 2xl:flex items-center space-x-1.5 bg-orange-950/70 border border-orange-800/80 text-orange-300 px-2 py-1 rounded-lg text-xs font-medium">
-            <span className="w-1.5 h-1.5 rounded-full bg-orange-400 animate-pulse"></span>
-            <span>ABHA: <b>33% (Target 30-35%)</b></span>
-          </div>
-
           <button
             onClick={onRefreshCohort}
             disabled={isGenerating}
