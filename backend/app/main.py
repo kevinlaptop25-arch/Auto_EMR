@@ -17,7 +17,8 @@ from app.api.routes_bloodbank import router as bloodbank_router
 app = FastAPI(
     title="East Point Hospital - Automated EMR Engine & NMC Audit Simulator",
     description="Functional POC demonstrating structurally accurate synthetic patient records, strict clinical logic rules, live timeline logic, digitized PDF/PACS audit trails, full Pharmacy, Billing, Blood Bank, Emergency modules, and ABDM M1/M2/M3 workflows.",
-    version="2.0.0"
+    version="2.0.0",
+    redirect_slashes=False
 )
 
 # Enable CORS for frontend dashboard
@@ -29,7 +30,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Include API Routers
+# Include API Routers with /api prefix
 app.include_router(patients_router, prefix="/api")
 app.include_router(clinical_router, prefix="/api")
 app.include_router(labs_router, prefix="/api")
@@ -40,6 +41,27 @@ app.include_router(emergency_router, prefix="/api")
 app.include_router(pharmacy_router, prefix="/api")
 app.include_router(billing_router, prefix="/api")
 app.include_router(bloodbank_router, prefix="/api")
+
+# Also include API Routers without /api prefix for flexible serverless path resolution
+app.include_router(patients_router)
+app.include_router(clinical_router)
+app.include_router(labs_router)
+app.include_router(pacs_router)
+app.include_router(abdm_router)
+app.include_router(audit_router)
+app.include_router(emergency_router)
+app.include_router(pharmacy_router)
+app.include_router(billing_router)
+app.include_router(bloodbank_router)
+
+@app.get("/api/ping")
+@app.get("/ping")
+def ping():
+    return {
+        "status": "online",
+        "service": "East Point Hospital EMR POC Backend",
+        "compliance": ["NMC 2025", "ABDM M1/M2/M3", "NABH"]
+    }
 
 # Serve frontend build if present
 frontend_dist = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "frontend", "dist"))
