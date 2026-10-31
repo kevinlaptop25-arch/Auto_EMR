@@ -26,11 +26,11 @@ export default function Navbar({ timeline, activePreset, onPresetChange, onRefre
                 EAST POINT HOSPITAL
               </h1>
               <span className="hidden sm:inline-block text-[9px] bg-red-950/80 text-red-400 border border-red-800/80 px-2 py-0.2 rounded-full font-mono font-semibold tracking-wider">
-                NMC POC
+                POC
               </span>
             </div>
             <p className="text-[10px] text-slate-400 truncate hidden sm:block">
-              Medical College & Research Centre · Bangalore
+              Powered by Node4 Tech
             </p>
           </div>
         </div>

@@ -22,6 +22,7 @@ yarn-error.log*
 # Debug screenshots & scratch scripts
 ui_*.png
 click_*.png
+vercel_*.png
 transcribe*
 meeting_transcript.txt
 emr.db
