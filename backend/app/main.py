@@ -63,9 +63,9 @@ def ping():
         "compliance": ["NMC 2025", "ABDM M1/M2/M3", "NABH"]
     }
 
-# Serve frontend build if present
+# Only mount StaticFiles locally; on Vercel, static assets are served directly by Vercel CDN
 frontend_dist = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "frontend", "dist"))
-if os.path.exists(frontend_dist):
+if "VERCEL" not in os.environ and os.path.exists(frontend_dist):
     app.mount("/", StaticFiles(directory=frontend_dist, html=True), name="static")
 else:
     @app.get("/")

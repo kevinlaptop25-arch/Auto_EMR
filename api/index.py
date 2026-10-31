@@ -12,40 +12,35 @@ class VercelPathFixMiddleware:
     """
     Middleware to ensure Vercel Serverless Function rewrites correctly map
     to FastAPI routes regardless of whether Vercel passes x-matched-path,
-    rewritten destination paths, or stripped prefixes.
+    rewritten destination paths (/api/index.py/$1), or stripped prefixes.
     """
     def __init__(self, app):
         self.app = app
 
     async def __call__(self, scope, receive, send):
         if scope["type"] == "http":
+            path = scope.get("path", "")
             headers = dict(scope.get("headers", []))
             
-            # Check for Vercel matched path header
+            # 1. Handle Vercel matched path header if provided
             matched_path = headers.get(b"x-matched-path", b"").decode("utf-8")
             if not matched_path:
                 matched_path = headers.get(b"x-rewrite-url", b"").decode("utf-8")
+                
+            if matched_path and not matched_path.startswith("/api/index.py"):
+                path = matched_path.split("?")[0]
             
-            if matched_path:
-                # Strip query params
-                clean_path = matched_path.split("?")[0]
-                for prefix in ["/api/index.py", "/index.py"]:
-                    if clean_path.startswith(prefix):
-                        clean_path = clean_path[len(prefix):]
-                        if not clean_path.startswith("/"):
-                            clean_path = "/" + clean_path
-                        break
-                if clean_path:
-                    scope["path"] = clean_path
-            else:
-                path = scope.get("path", "")
-                for prefix in ["/api/index.py", "/index.py"]:
-                    if path.startswith(prefix):
-                        clean_path = path[len(prefix):]
-                        if not clean_path.startswith("/"):
-                            clean_path = "/" + clean_path
-                        scope["path"] = clean_path
-                        break
+            # 2. Strip /api/index.py or /index.py prefix if present in invocation path
+            for prefix in ["/api/index.py", "/index.py"]:
+                if path.startswith(prefix):
+                    remainder = path[len(prefix):]
+                    path = remainder if remainder.startswith("/") else ("/" + remainder if remainder else "/ping")
+                    break
+                    
+            if not path or path == "/":
+                path = "/ping"
+                
+            scope["path"] = path
                         
         await self.app(scope, receive, send)
 
