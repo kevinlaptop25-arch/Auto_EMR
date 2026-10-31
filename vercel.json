@@ -1,18 +1,8 @@
 {
-  "buildCommand": "cd frontend && npm install && npm run build",
-  "outputDirectory": "frontend/dist",
   "rewrites": [
     {
-      "source": "/api/(.*)",
+      "source": "/(.*)",
       "destination": "/api/index.py/$1"
-    },
-    {
-      "source": "/api",
-      "destination": "/api/index.py/ping"
-    },
-    {
-      "source": "/((?!assets/|favicon\\.ico|.*\\..*).*)",
-      "destination": "/index.html"
     }
   ]
 }

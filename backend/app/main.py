@@ -1,6 +1,7 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
+from fastapi.responses import JSONResponse, FileResponse
 import os
 
 from app.api.routes_patients import router as patients_router
@@ -63,9 +64,20 @@ def ping():
         "compliance": ["NMC 2025", "ABDM M1/M2/M3", "NABH"]
     }
 
-# Only mount StaticFiles locally; on Vercel, static assets are served directly by Vercel CDN
 frontend_dist = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "frontend", "dist"))
-if "VERCEL" not in os.environ and os.path.exists(frontend_dist):
+
+# SPA fallback handler: return index.html for browser routes, JSON 404 for missing /api routes
+@app.exception_handler(404)
+async def spa_404_handler(request: Request, exc):
+    if request.url.path.startswith("/api"):
+        return JSONResponse(status_code=404, content={"detail": "Not Found"})
+    index_file = os.path.join(frontend_dist, "index.html")
+    if os.path.exists(index_file):
+        return FileResponse(index_file, media_type="text/html")
+    return JSONResponse(status_code=404, content={"detail": "Not Found"})
+
+# Serve frontend build if present
+if os.path.exists(frontend_dist):
     app.mount("/", StaticFiles(directory=frontend_dist, html=True), name="static")
 else:
     @app.get("/")

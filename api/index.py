@@ -12,7 +12,7 @@ class VercelPathFixMiddleware:
     """
     Middleware to ensure Vercel Serverless Function rewrites correctly map
     to FastAPI routes regardless of whether Vercel passes x-matched-path,
-    rewritten destination paths (/api/index.py/$1), or stripped prefixes.
+    rewritten destination paths (/api/index.py/$1), or root calls.
     """
     def __init__(self, app):
         self.app = app
@@ -34,11 +34,11 @@ class VercelPathFixMiddleware:
             for prefix in ["/api/index.py", "/index.py"]:
                 if path.startswith(prefix):
                     remainder = path[len(prefix):]
-                    path = remainder if remainder.startswith("/") else ("/" + remainder if remainder else "/ping")
+                    path = remainder if remainder.startswith("/") else ("/" + remainder if remainder else "/")
                     break
                     
-            if not path or path == "/":
-                path = "/ping"
+            if not path:
+                path = "/"
                 
             scope["path"] = path
                         
