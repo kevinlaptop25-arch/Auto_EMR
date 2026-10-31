@@ -69,11 +69,38 @@ frontend_dist = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".
 # SPA fallback handler: return index.html for browser routes, JSON 404 for missing /api routes
 @app.exception_handler(404)
 async def spa_404_handler(request: Request, exc):
-    if request.url.path.startswith("/api"):
+    path = request.url.path
+    if path.startswith("/api"):
         return JSONResponse(status_code=404, content={"detail": "Not Found"})
+    
+    # If a JS or CSS asset with a mismatched hash is requested, fallback to the latest asset bundle
+    # instead of serving HTML which breaks module script loading
+    if path.startswith("/assets/"):
+        assets_dir = os.path.join(frontend_dist, "assets")
+        if os.path.exists(assets_dir):
+            if path.endswith(".js"):
+                js_files = [f for f in os.listdir(assets_dir) if f.endswith(".js")]
+                if js_files:
+                    latest_js = os.path.join(assets_dir, sorted(js_files)[-1])
+                    return FileResponse(latest_js, media_type="text/javascript")
+            elif path.endswith(".css"):
+                css_files = [f for f in os.listdir(assets_dir) if f.endswith(".css")]
+                if css_files:
+                    latest_css = os.path.join(assets_dir, sorted(css_files)[-1])
+                    return FileResponse(latest_css, media_type="text/css")
+        return JSONResponse(status_code=404, content={"detail": "Asset Not Found"})
+        
     index_file = os.path.join(frontend_dist, "index.html")
     if os.path.exists(index_file):
-        return FileResponse(index_file, media_type="text/html")
+        return FileResponse(
+            index_file,
+            media_type="text/html",
+            headers={
+                "Cache-Control": "no-cache, no-store, must-revalidate",
+                "Pragma": "no-cache",
+                "Expires": "0"
+            }
+        )
     return JSONResponse(status_code=404, content={"detail": "Not Found"})
 
 # Serve frontend build if present
