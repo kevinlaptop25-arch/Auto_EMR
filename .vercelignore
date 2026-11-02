@@ -1,0 +1,10 @@
+# Ignore large scanned PDF dossiers from serverless deployment bundle
+Auto EMR/
+ui_*.png
+click_*.png
+vercel_*.png
+page-*.png
+*.m4a
+.playwright-mcp/
+.pytest_cache/
+tests/

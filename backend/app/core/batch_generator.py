@@ -126,7 +126,7 @@ class BatchGenerator:
         # Discharge time for IPD: Day 4 discharge for flagship cases, 2-4 days for others
         discharge_time = None
         if is_ipd:
-            if index <= 6:
+            if index <= 12:
                 # Flagship 4-day progression cohort discharges on Day 4 at 16:00
                 discharge_time = reg_time.replace(hour=16, minute=0) + timedelta(days=3)
             else:
@@ -148,13 +148,13 @@ class BatchGenerator:
             dept = CLINICAL_PROFILES[profile_key]["department"]
 
         # Ensure obstetric cases only go to females
-        if profile_key == "TERM_PREGNANCY_LSCS" or dept == "Obstetrics & Gynaecology":
+        if profile_key in ["TERM_PREGNANCY_LSCS", "GADEMMA_AUB", "MARY_STELLA_ANC"] or dept == "Obstetrics & Gynaecology":
             is_female = True
             dept = "Obstetrics & Gynaecology"
             if not forced_name:
                 first_name = random.choice(FIRST_NAMES_FEMALE)
                 full_name = f"{first_name} {surname}"
-            age = forced_age or random.randint(21, 34)
+            age = forced_age or random.randint(21, 48)
         else:
             age = forced_age or random.randint(20, 75)
 
@@ -236,11 +236,17 @@ class BatchGenerator:
         self.billing_invoices.clear()
         self.blood_requisitions.clear()
 
-        # Seed with 6 flagship clinical cases matching physical hospital PDFs & multi-ICD progression
+        # Seed with 12 flagship clinical cases matching physical hospital PDFs across OBG, Neuro, Ortho & Medicine
         featured_profiles = [
+            ("GADEMMA_AUB", "Gademma", "Female", 45, "Obstetrics & Gynaecology"),
+            ("BHARATH_TBI", "Bharath", "Male", 17, "Neurology"),
+            ("ANIL_KUMAR_FRACTURE", "Anil Kumar", "Male", 31, "Orthopedics"),
+            ("NAGARAJA_SDH", "Nagaraja", "Male", 55, "Neurology"),
+            ("MARY_STELLA_ANC", "Mary Stella", "Female", 33, "Obstetrics & Gynaecology"),
+            ("MUNI_NARAYANAPPA_ANKLE", "Muni Narayanappa", "Male", 62, "Orthopedics"),
             ("MALARIA_PV", "Devendra", "Male", 38, "General Medicine"),
-            ("TYPE2_DM_HYPERGLYCEMIA", "Narasimhapa", "Male", 54, "General Medicine"),
             ("COPD_ACUTE_EXACERBATION", "Venkateshappa", "Male", 68, "Respiratory Medicine"),
+            ("TYPE2_DM_HYPERGLYCEMIA", "Narasimhapa", "Male", 54, "General Medicine"),
             ("DENGUE_FEVER", "Shanthamma", "Female", 44, "General Medicine"),
             ("LUMBAR_SPONDYLOSIS", "Subbamma", "Female", 52, "Orthopedics"),
             ("TERM_PREGNANCY_LSCS", "Radhika", "Female", 26, "Obstetrics & Gynaecology"),

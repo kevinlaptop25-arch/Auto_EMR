@@ -23,9 +23,16 @@ def get_radiology_study(patient_id: str):
 
 @router.get("/images/{image_name}")
 def get_radiology_image(image_name: str):
-    # Map profile images to generated textures
-    if "copd" in image_name.lower() or "chest" in image_name.lower() or "pneumonia" in image_name.lower():
+    # Map profile images to generated realistic clinical textures
+    name = image_name.lower()
+    if any(k in name for k in ["copd", "chest", "pneumonia"]):
         file_path = os.path.join(SAMPLE_DIR, "chest_xray.png")
+    elif any(k in name for k in ["head", "brain", "ncct", "tbi", "sdh", "neuro"]):
+        file_path = os.path.join(SAMPLE_DIR, "head_ct.png")
+    elif any(k in name for k in ["knee", "ankle", "fracture", "patella", "ortho"]):
+        file_path = os.path.join(SAMPLE_DIR, "knee_xray.png")
+    elif any(k in name for k in ["usg", "pelvis", "aub", "obg", "pregnancy", "anc"]):
+        file_path = os.path.join(SAMPLE_DIR, "pelvis_usg.png")
     else:
         file_path = os.path.join(SAMPLE_DIR, "spine_mri.png")
         

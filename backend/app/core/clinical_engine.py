@@ -24,6 +24,7 @@ EAST_POINT_DOCTORS = [
     {"name": "Dr. Mahapara Mushtaq", "reg": "KMC: 161375", "dept": "Respiratory Medicine", "designation": "Senior Resident"},
     {"name": "Dr. Abhijit M.G.", "reg": "KMC: 57139", "dept": "General Surgery", "designation": "Professor & Surgeon"},
     {"name": "Dr. Omkar V", "reg": "KMC: 154210", "dept": "Orthopedics", "designation": "Associate Professor"},
+    {"name": "Dr. Tarun Kumar", "reg": "KMC: 148920", "dept": "Orthopedics", "designation": "Assistant Professor"},
     {"name": "Dr. R.M. Laxmi Priya", "reg": "KMC: 128941", "dept": "Ophthalmology", "designation": "Consultant"},
     {"name": "Dr. C. K. Narayana Swamy", "reg": "KMC: 39812", "dept": "Pediatrics", "designation": "Professor & HOD"},
     {"name": "Dr. Harish Kumar M", "reg": "KMC: 112048", "dept": "ENT (Otorhinolaryngology)", "designation": "Associate Professor"},
@@ -35,6 +36,7 @@ EAST_POINT_DOCTORS = [
     {"name": "Dr. Manjula Swamy", "reg": "KMC: 52190", "dept": "Pathology & Transfusion Medicine", "designation": "Blood Centre In-Charge"},
     {"name": "Dr. Anand Murthy", "reg": "KMC: 61840", "dept": "Cardiology", "designation": "Consultant Cardiologist"},
     {"name": "Dr. Venugopal S", "reg": "KMC: 88192", "dept": "Neurology", "designation": "Consultant Neurologist"},
+    {"name": "Dr. S. K. Rao", "reg": "KMC: 115403", "dept": "Neurology", "designation": "Consultant Neurosurgeon"},
     {"name": "Dr. R. Prabhakar", "reg": "KMC: 71203", "dept": "Nephrology", "designation": "Consultant Nephrologist"},
     {"name": "Dr. Sudheer Reddy", "reg": "KMC: 93412", "dept": "Gastroenterology", "designation": "Consultant Gastroenterologist"},
     {"name": "Dr. Vinayaka B", "reg": "KMC: 104521", "dept": "Urology", "designation": "Consultant Urologist"},
@@ -546,6 +548,444 @@ CLINICAL_PROFILES = {
             "Physiotherapy: Core strengthening & pelvic bridging exercises",
             "Review in Orthopedics OPD after 2 weeks"
         ]
+    },
+    "GADEMMA_AUB": {
+        "disease_name": "Abnormal Uterine Bleeding (AUB-L / Endometrial Hyperplasia)",
+        "icd10": "N92.0",
+        "department": "Obstetrics & Gynaecology",
+        "chief_complaints": [
+            "c/o Heavy menstrual bleeding with passage of large clots x 9 months",
+            "c/o Lower abdominal dragging and crampy pain during periods x 6 months",
+            "c/o Generalized weakness, fatigue, and exertional palpitation x 2 months"
+        ],
+        "hpi": "45-year-old P2L2 female presented with complaints of excessive and irregular menstrual bleeding for 9 months, soaking 5-6 pads daily with large clots. Associated with lower abdominal dragging pain and easy fatigability. No history of post-coital bleeding or foul-smelling discharge. Pelvic examination reveals bulky uterus; endometrial evaluation planned.",
+        "vitals_admission": {"bp": "110/70", "pr": "88", "rr": "18", "temp": "98.4", "spo2": "99", "grbs": "98"},
+        "exam_admission": {
+            "pallor": "Present (++)", "icterus": "Absent", "edema": "Absent", "cyanosis": "Absent", "clubbing": "Absent",
+            "cvs": "S1 S2 heard, hemic ejection systolic murmur grade 2/6 over pulmonary area",
+            "rs": "Normal vesicular breath sounds bilaterally, chest clear",
+            "abdomen": "Soft, mild tenderness over suprapubic region, no organomegaly",
+            "cns": "Conscious, oriented",
+            "local_exam": "Per Speculum (P/S): Cervix healthy, external os closed, blood clots seen in posterior fornix. Per Vaginum (P/V): Uterus anteverted, bulky (~8-10 weeks gravid size), firm, mobile, non-tender. Bilateral fornices free."
+        },
+        "pathology": {
+            "category": "Complete Blood Count & Coagulation Profile",
+            "items": [
+                {"name": "Hemoglobin", "result_value": "8.4", "unit": "g/dL", "reference_range": "11.0 - 15.0", "flag": "LOW"},
+                {"name": "Packed Cell Volume (PCV)", "result_value": "27.2", "unit": "%", "reference_range": "36.0 - 46.0", "flag": "LOW"},
+                {"name": "Mean Corpuscular Volume (MCV)", "result_value": "72.4", "unit": "fL", "reference_range": "80.0 - 100.0", "flag": "LOW"},
+                {"name": "Mean Corpuscular Hb (MCH)", "result_value": "23.1", "unit": "pg", "reference_range": "27.0 - 32.0", "flag": "LOW"},
+                {"name": "Platelet Count", "result_value": "285000", "unit": "/µL", "reference_range": "150000 - 450000", "flag": "NORMAL"},
+                {"name": "Total Leucocyte Count (TLC)", "result_value": "7800", "unit": "cells/cumm", "reference_range": "4000 - 11000", "flag": "NORMAL"},
+                {"name": "Prothrombin Time (PT)", "result_value": "12.4", "unit": "seconds", "reference_range": "11 - 14", "flag": "NORMAL"},
+                {"name": "INR", "result_value": "1.01", "unit": "-", "reference_range": "0.8 - 1.2", "flag": "NORMAL"}
+            ]
+        },
+        "biochemistry": {
+            "category": "Renal Function & Serum Ferritin",
+            "items": [
+                {"name": "Serum Ferritin", "result_value": "11.2", "unit": "ng/mL", "reference_range": "15.0 - 150.0", "flag": "LOW"},
+                {"name": "Blood Urea", "result_value": "21", "unit": "mg/dL", "reference_range": "15 - 45", "flag": "NORMAL"},
+                {"name": "Serum Creatinine", "result_value": "0.72", "unit": "mg/dL", "reference_range": "0.5 - 1.1", "flag": "NORMAL"},
+                {"name": "Random Blood Sugar", "result_value": "98", "unit": "mg/dL", "reference_range": "70 - 140", "flag": "NORMAL"}
+            ]
+        },
+        "microbiology": {
+            "category": "Pap Smear & Pre-Operative Serology",
+            "items": [
+                {"name": "Cervical Pap Smear Cytology", "result_value": "Negative for Intraepithelial Lesion or Malignancy (NILM); Inflammatory changes", "unit": "-", "reference_range": "NILM", "flag": "NORMAL"},
+                {"name": "HIV 1&2 Rapid Screen", "result_value": "Non-Reactive", "unit": "-", "reference_range": "Non-Reactive", "flag": "NORMAL"},
+                {"name": "HBsAg Rapid Screen", "result_value": "Non-Reactive", "unit": "-", "reference_range": "Non-Reactive", "flag": "NORMAL"}
+            ]
+        },
+        "radiology_required": True,
+        "radiology_type": "PELVIC_USG",
+        "radiology_details": {
+            "modality": "US",
+            "body_part": "PELVIS",
+            "study_description": "Ultrasound Pelvis (Transabdominal & Transvaginal)",
+            "findings": "Uterus is anteverted, bulky, measuring 9.4 x 5.6 x 5.0 cm with normal myometrial echotexture. No focal fibroid lesion seen. Endometrium is uniformly thickened measuring 14.8 mm, showing heterogeneous texture with cystic spaces suspicious for hyperplasia. Bilateral ovaries appear normal in size and stroma. No free fluid in pouch of Douglas.",
+            "impression": "Bulky uterus with thickened endometrium (14.8 mm). Suggestive of Endometrial Hyperplasia. Histopathological evaluation via Dilatation and Curettage (D&C) recommended."
+        },
+        "medications_inpatient": [
+            "Inj Tranexamic Acid 500mg IV TDS x 48 hours",
+            "Inj Iron Sucrose 200mg in 100ml NS IV infusion alternate days x 2 doses",
+            "Tab Meprate (Medroxyprogesterone acetate) 10mg 1-0-1",
+            "Tab Pantoprazole 40mg 1-0-0 (B/F)",
+            "IV Normal Saline 0.9% 75 ml/hr",
+            "Pre-op preparation for D&C (NPO, consent, anaesthetic review)"
+        ],
+        "medications_discharge": [
+            "Tab Medroxyprogesterone acetate 10mg 1-0-1 x 21 days (from Day 5 of cycle)",
+            "Tab Orofer-XT (Ferrous Ascorbate + Folic Acid) 1-0-0 post lunch x 2 months",
+            "Tab Tranexamic Acid 500mg TDS SOS during heavy flow",
+            "Tab Pantoprazole 40mg 1-0-0 x 14 days",
+            "Review with Histopathology (HPE) report in 7 days"
+        ]
+    },
+    "MARY_STELLA_ANC": {
+        "disease_name": "Antenatal Care G2P1L1 at 36 Weeks POG with Gestational Hypothyroidism",
+        "icd10": "Z34.80",
+        "department": "Obstetrics & Gynaecology",
+        "chief_complaints": [
+            "Routine planned Antenatal Checkup at 36 weeks gestational age",
+            "c/o Mild bilateral pedal edema x 2 weeks",
+            "Known case of Primary Hypothyroidism on Tab Thyroxine 50mcg OD"
+        ],
+        "hpi": "33-year-old G2P1L1 at 36 weeks POG presented for planned antenatal review. Prior FTND 4 years ago with healthy male child. Known case of primary hypothyroidism detected in early second trimester, maintained on Tab Thyroxine 50mcg OD. Patient reports active fetal movements (> 10 kicks/day). No complaints of headache, visual blurring, epigastric pain, or per-vaginal leaking/bleeding.",
+        "vitals_admission": {"bp": "118/76", "pr": "82", "rr": "18", "temp": "98.4", "spo2": "99", "grbs": "92"},
+        "exam_admission": {
+            "pallor": "Absent", "icterus": "Absent", "edema": "Mild bilateral pitting ankle edema (+)", "cyanosis": "Absent", "clubbing": "Absent",
+            "cvs": "S1 S2 heard, normal",
+            "rs": "Bilateral vesicular breath sounds, clear",
+            "abdomen": "P/A: Uterus corresponds to 36 weeks size, relaxed. Longitudinal lie, cephalic presentation. Head high, not engaged. Fetal Heart Sounds (FHS) 144 bpm, regular in right lower quadrant. No scar tenderness.",
+            "cns": "Conscious, cooperative, deep tendon reflexes normal (+2 bilaterally)"
+        },
+        "pathology": {
+            "category": "Third Trimester Antenatal Hematology",
+            "items": [
+                {"name": "Hemoglobin", "result_value": "11.2", "unit": "g/dL", "reference_range": "11.0 - 15.0", "flag": "NORMAL"},
+                {"name": "Blood Group & Rh Type", "result_value": "O Rh Positive", "unit": "-", "reference_range": "-", "flag": "NORMAL"},
+                {"name": "Platelet Count", "result_value": "225000", "unit": "/µL", "reference_range": "150000 - 450000", "flag": "NORMAL"},
+                {"name": "Urine Routine - Protein / Albumin", "result_value": "Nil", "unit": "-", "reference_range": "Nil", "flag": "NORMAL"},
+                {"name": "Urine Routine - Sugar", "result_value": "Nil", "unit": "-", "reference_range": "Nil", "flag": "NORMAL"}
+            ]
+        },
+        "biochemistry": {
+            "category": "Thyroid Profile & Glycemic Screen",
+            "items": [
+                {"name": "Serum TSH (3rd Generation)", "result_value": "2.84", "unit": "µIU/mL", "reference_range": "0.3 - 3.0 (Trimester 3)", "flag": "NORMAL"},
+                {"name": "Free T4 (FT4)", "result_value": "1.18", "unit": "ng/dL", "reference_range": "0.8 - 1.8", "flag": "NORMAL"},
+                {"name": "Fasting Plasma Glucose", "result_value": "86", "unit": "mg/dL", "reference_range": "70 - 95", "flag": "NORMAL"},
+                {"name": "Serum Uric Acid", "result_value": "4.2", "unit": "mg/dL", "reference_range": "2.5 - 6.0", "flag": "NORMAL"}
+            ]
+        },
+        "microbiology": {
+            "category": "High Vaginal Swab & Antenatal Serology",
+            "items": [
+                {"name": "High Vaginal Swab (HVS) Culture", "result_value": "No pathogenic bacterial or candida growth", "unit": "-", "reference_range": "Normal flora", "flag": "NORMAL"},
+                {"name": "HIV 1&2 ELISA", "result_value": "Non-Reactive", "unit": "-", "reference_range": "Non-Reactive", "flag": "NORMAL"},
+                {"name": "HBsAg", "result_value": "Non-Reactive", "unit": "-", "reference_range": "Non-Reactive", "flag": "NORMAL"}
+            ]
+        },
+        "radiology_required": True,
+        "radiology_type": "OBSTETRIC_USG",
+        "radiology_details": {
+            "modality": "US",
+            "body_part": "OBSTETRICS",
+            "study_description": "Obstetric Ultrasound with Color Doppler (36 Weeks Growth Scan)",
+            "findings": "Single live intrauterine fetus in cephalic presentation. BPD: 89.2 mm, FL: 70.4 mm, AC: 316.0 mm. Estimated Fetal Weight (EFW): 2680 ± 150 grams (~50th percentile). Amniotic Fluid Index (AFI): 13.6 cm (Adequate liquor). Placenta: Anterior, Grade II maturity, clear of internal os. Umbilical Artery Doppler: S/D ratio 2.3, RI 0.56, good end-diastolic flow.",
+            "impression": "Single live intrauterine gestation corresponding to 36 weeks with normal biophysical profile, adequate liquor volume, and reassuring umbilical artery Doppler indices."
+        },
+        "medications_inpatient": [
+            "Tab Thyroxine Sodium 50mcg 1-0-0 (stat early morning empty stomach)",
+            "Tab Shelcal 500mg (Calcium + Vit D3) 1-0-1 (Post meals)",
+            "Tab Autrin (Ferrous Fumarate + Folic Acid) 1-0-0 (Post lunch)",
+            "Daily Fetal Movement Count (DFMC) charting",
+            "Non-Stress Test (NST) monitoring daily"
+        ],
+        "medications_discharge": [
+            "Tab Thyroxine Sodium 50mcg 1-0-0 empty stomach daily",
+            "Tab Shelcal 500mg 1-0-1 x 1 month",
+            "Tab Autrin 1-0-0 x 1 month",
+            "Maintain Daily Fetal Movement Count (DFMC > 10 kicks / 12 hours)",
+            "Report immediately if leaking, bleeding per vaginum, or decreased fetal kicks",
+            "Review in OBG Antenatal Clinic at 37 weeks"
+        ]
+    },
+    "BHARATH_TBI": {
+        "disease_name": "Acute Traumatic Brain Injury (Concussion & Cortical Hemorrhagic Contusion)",
+        "icd10": "S06.0X0A",
+        "department": "Neurology",
+        "chief_complaints": [
+            "c/o Head trauma following Road Traffic Accident (Two-wheeler skid) x 3 hours",
+            "c/o Transient loss of consciousness for ~5 minutes at the accident spot",
+            "c/o Multiple episodes of projectile vomiting and severe bifrontal headache",
+            "c/o Scalp laceration over right parietal region"
+        ],
+        "hpi": "17-year-old male pillion rider (not wearing helmet) sustained acute head trauma following a two-wheeler collision with skid 3 hours prior to presentation. History of loss of consciousness lasting approximately 5 minutes, followed by drowsiness, 3 episodes of non-bilious projectile vomiting, and severe diffuse headache. No history of seizures, ear/nose bleeding, or limb weakness. Brought to emergency for acute neuro-trauma management.",
+        "vitals_admission": {"bp": "124/76", "pr": "68", "rr": "16", "temp": "98.6", "spo2": "98", "grbs": "110"},
+        "exam_admission": {
+            "pallor": "Absent", "icterus": "Absent", "edema": "Absent", "cyanosis": "Absent", "clubbing": "Absent",
+            "cvs": "S1 S2 heard, regular rate and rhythm",
+            "rs": "Bilateral vesicular breath sounds, chest clear",
+            "abdomen": "Soft, non-tender, bowel sounds present",
+            "cns": "Conscious but drowsy. Glasgow Coma Scale (GCS): E4 V4 M6 = 14/15. Pupils: Equal (3mm) and briskly reacting to light bilaterally. Cranial nerves I-XII grossly intact. Motor power: 5/5 in all 4 limbs, tone normal. Deep tendon reflexes: 2+ bilaterally. Plantars: Bilateral flexor. No signs of meningeal irritation.",
+            "local_exam": "3 x 0.5 cm contused lacerated wound over right parietal scalp, hemostasis achieved, no visible skull depression or bone fragments."
+        },
+        "pathology": {
+            "category": "Emergency Trauma Hematology & Coagulation Panel",
+            "items": [
+                {"name": "Hemoglobin", "result_value": "14.2", "unit": "g/dL", "reference_range": "13.0 - 17.0", "flag": "NORMAL"},
+                {"name": "Total Leucocyte Count (TLC)", "result_value": "10400", "unit": "cells/cumm", "reference_range": "4000 - 11000", "flag": "NORMAL"},
+                {"name": "Platelet Count", "result_value": "210000", "unit": "/µL", "reference_range": "150000 - 450000", "flag": "NORMAL"},
+                {"name": "Prothrombin Time (PT)", "result_value": "12.2", "unit": "seconds", "reference_range": "11 - 14", "flag": "NORMAL"},
+                {"name": "INR", "result_value": "1.02", "unit": "-", "reference_range": "0.8 - 1.2", "flag": "NORMAL"},
+                {"name": "Blood Group & Rh Type", "result_value": "A Rh Positive", "unit": "-", "reference_range": "-", "flag": "NORMAL"}
+            ]
+        },
+        "biochemistry": {
+            "category": "Serum Electrolytes & Renal Function",
+            "items": [
+                {"name": "Serum Sodium", "result_value": "140", "unit": "mEq/L", "reference_range": "135 - 145", "flag": "NORMAL"},
+                {"name": "Serum Potassium", "result_value": "4.2", "unit": "mEq/L", "reference_range": "3.5 - 5.0", "flag": "NORMAL"},
+                {"name": "Blood Urea", "result_value": "24", "unit": "mg/dL", "reference_range": "15 - 45", "flag": "NORMAL"},
+                {"name": "Serum Creatinine", "result_value": "0.82", "unit": "mg/dL", "reference_range": "0.6 - 1.2", "flag": "NORMAL"}
+            ]
+        },
+        "microbiology": {
+            "category": "Pre-Admission Infection Screen",
+            "items": [
+                {"name": "HIV 1&2 Rapid Test", "result_value": "Non-Reactive", "unit": "-", "reference_range": "Non-Reactive", "flag": "NORMAL"},
+                {"name": "HBsAg Rapid Test", "result_value": "Non-Reactive", "unit": "-", "reference_range": "Non-Reactive", "flag": "NORMAL"}
+            ]
+        },
+        "radiology_required": True,
+        "radiology_type": "NCCT_BRAIN",
+        "radiology_details": {
+            "modality": "CT",
+            "body_part": "HEAD",
+            "study_description": "Non-Contrast Computed Tomography (NCCT) Brain Axial 5mm",
+            "findings": "Small 8 x 6 mm hyperdense hemorrhagic contusion seen in the right high parietal cortex with surrounding minimal rim of perifocal edema. No acute epidural or subdural hematoma seen. Lateral ventricles and 3rd ventricle are normal in caliber. Basal cisterns are clear. No midline shift. Calvarium is intact without depressed fracture.",
+            "impression": "Small right parietal cortical hemorrhagic contusion and cerebral concussion. No mass effect or midline shift. Managed conservatively with strict neurological observation."
+        },
+        "medications_inpatient": [
+            "Inj Mannitol 20% 100ml IV TDS x 48 hours (anti-edema therapy)",
+            "Inj Levetiracetam 500mg IV BD (post-traumatic seizure prophylaxis)",
+            "Inj Citicoline 500mg IV BD in 100ml NS",
+            "Inj Ondansetron 4mg IV TDS (antiemetic)",
+            "Inj Pantoprazole 40mg IV OD",
+            "Inj Tramadol 50mg IV in 100ml NS SOS for severe headache",
+            "Inj Tetanus Toxoid 0.5ml IM stat (wound care)",
+            "Strict Neuro-Chart monitoring (GCS, pupil size, reaction Q1H)"
+        ],
+        "medications_discharge": [
+            "Tab Levetiracetam 500mg 1-0-1 x 14 days",
+            "Tab Citicoline 500mg 1-0-1 x 1 month",
+            "Tab Paracetamol 650mg TDS SOS for headache",
+            "Tab Pantoprazole 40mg 1-0-0 x 7 days",
+            "Strictly avoid strenuous sports / riding two-wheeler for 4 weeks",
+            "Review in Neurology OPD in 7 days or immediately if vomiting/drowsiness recurs"
+        ]
+    },
+    "NAGARAJA_SDH": {
+        "disease_name": "Chronic Subdural Hematoma (Right Fronto-Parietal)",
+        "icd10": "I62.00",
+        "department": "Neurology",
+        "chief_complaints": [
+            "c/o Progressive dull aching headache x 3 weeks",
+            "c/o Progressive weakness in left upper and lower limbs x 5 days",
+            "c/o Episodes of mental slowing, disorientation, and unsteady gait x 1 week"
+        ],
+        "hpi": "55-year-old male with history of trivial accidental slip and fall 3 weeks ago without initial LOC. Developed gradually progressive holocranial headache refractory to over-the-counter analgesics. Over the last 5 days, family noticed progressive weakness in left arm and leg (slipping of footwear, clumsiness in buttoning shirt), slowed cognition, and dragging gait. Brought for emergency neuro-evaluation.",
+        "vitals_admission": {"bp": "148/90", "pr": "64", "rr": "16", "temp": "98.4", "spo2": "98", "grbs": "132"},
+        "exam_admission": {
+            "pallor": "Absent", "icterus": "Absent", "edema": "Absent", "cyanosis": "Absent", "clubbing": "Absent",
+            "cvs": "S1 S2 heard, bradycardic rhythm",
+            "rs": "Bilateral vesicular breath sounds, clear",
+            "abdomen": "Soft, non-tender",
+            "cns": "Conscious, mild cognitive slowing. GCS: E4 V4 M6 = 14/15. Left upper motor neuron facial paresis. Motor Power: Left Upper Limb 4-/5, Left Lower Limb 4/5, Right limbs 5/5. Tone: Spasticity in left limbs. Reflexes: Left biceps, knee, ankle hyperreflexic (3+), right 2+. Plantar reflex: Left extensor (positive Babinski), right flexor. Sensory examination intact."
+        },
+        "pathology": {
+            "category": "Pre-Operative Neuro-Surgical Hematology & Coagulation",
+            "items": [
+                {"name": "Hemoglobin", "result_value": "13.8", "unit": "g/dL", "reference_range": "13.0 - 17.0", "flag": "NORMAL"},
+                {"name": "Total Leucocyte Count (TLC)", "result_value": "8600", "unit": "cells/cumm", "reference_range": "4000 - 11000", "flag": "NORMAL"},
+                {"name": "Platelet Count", "result_value": "235000", "unit": "/µL", "reference_range": "150000 - 450000", "flag": "NORMAL"},
+                {"name": "Prothrombin Time (PT)", "result_value": "12.8", "unit": "seconds", "reference_range": "11 - 14", "flag": "NORMAL"},
+                {"name": "INR", "result_value": "1.04", "unit": "-", "reference_range": "0.8 - 1.2", "flag": "NORMAL"},
+                {"name": "Activated Partial Thromboplastin Time (aPTT)", "result_value": "28.4", "unit": "seconds", "reference_range": "25 - 35", "flag": "NORMAL"},
+                {"name": "Blood Group & Rh Type", "result_value": "O Rh Positive", "unit": "-", "reference_range": "-", "flag": "NORMAL"}
+            ]
+        },
+        "biochemistry": {
+            "category": "Renal Panel & Pre-Op Electrolytes",
+            "items": [
+                {"name": "Serum Sodium", "result_value": "136", "unit": "mEq/L", "reference_range": "135 - 145", "flag": "NORMAL"},
+                {"name": "Serum Potassium", "result_value": "4.1", "unit": "mEq/L", "reference_range": "3.5 - 5.0", "flag": "NORMAL"},
+                {"name": "Blood Urea", "result_value": "28", "unit": "mg/dL", "reference_range": "15 - 45", "flag": "NORMAL"},
+                {"name": "Serum Creatinine", "result_value": "0.91", "unit": "mg/dL", "reference_range": "0.6 - 1.2", "flag": "NORMAL"}
+            ]
+        },
+        "microbiology": {
+            "category": "Pre-Operative Viral Screen",
+            "items": [
+                {"name": "HIV 1&2 ELISA", "result_value": "Non-Reactive", "unit": "-", "reference_range": "Non-Reactive", "flag": "NORMAL"},
+                {"name": "HBsAg Rapid Test", "result_value": "Non-Reactive", "unit": "-", "reference_range": "Non-Reactive", "flag": "NORMAL"},
+                {"name": "Anti-HCV", "result_value": "Non-Reactive", "unit": "-", "reference_range": "Non-Reactive", "flag": "NORMAL"}
+            ]
+        },
+        "radiology_required": True,
+        "radiology_type": "NCCT_BRAIN",
+        "radiology_details": {
+            "modality": "CT",
+            "body_part": "HEAD",
+            "study_description": "NCCT Brain Axial with Multiplanar Reconstructions",
+            "findings": "Large crescent-shaped hypodense to isodense extra-axial fluid collection along the right fronto-parieto-temporal convexity measuring 18.2 mm in maximum thickness. Significant mass effect with compression of right lateral ventricle, effacement of cortical sulci, and 7.2 mm midline shift to the left. No acute fresh hyperdense hemorrhage.",
+            "impression": "Large Right Fronto-Parieto-Temporal Chronic Subdural Hematoma (CSDH) with significant mass effect and 7.2 mm midline shift. Indication for urgent surgical burr-hole craniostomy and subdural evacuation."
+        },
+        "medications_inpatient": [
+            "Emergency Burr-Hole Craniostomy & Subdural Evacuation with drain under sedation",
+            "Inj Ceftriaxone 1g IV BD x 3 days",
+            "Inj Levetiracetam 500mg IV BD (antiepileptic cover)",
+            "Inj Pantoprazole 40mg IV OD",
+            "Inj Paracetamol 1g IV TDS SOS",
+            "IV Normal Saline 0.9% 75 ml/hr (keep patient well hydrated in flat position)",
+            "Closed subdural gravity drainage bag monitoring (measure output Q8H)"
+        ],
+        "medications_discharge": [
+            "Tab Levetiracetam 500mg 1-0-1 x 1 month",
+            "Tab Cefpodoxime Proxetil 200mg 1-0-1 x 5 days",
+            "Tab Pantoprazole 40mg 1-0-0 x 14 days",
+            "Tab Paracetamol 650mg TDS SOS",
+            "Keep surgical wound clean and dry; suture removal on Day 8 in OPD",
+            "Review in Neurosurgery / Neurology OPD in 7 days with repeat scan if symptoms recur"
+        ]
+    },
+    "ANIL_KUMAR_FRACTURE": {
+        "disease_name": "Closed Fracture Patella Right Knee (Transverse Displaced)",
+        "icd10": "S82.001A",
+        "department": "Orthopedics",
+        "chief_complaints": [
+            "c/o Severe pain, tense swelling, and deformity of right knee x 5 hours",
+            "c/o Absolute inability to bear weight on right lower limb",
+            "c/o Complete inability to actively extend the right knee or perform straight leg raise"
+        ],
+        "hpi": "31-year-old male sustained direct blunt trauma to the anterior aspect of right knee against the car bumper in a two-wheeler collision 5 hours ago. Complains of excruciating pain, rapid tense swelling of the knee joint, and inability to stand or extend the knee. No neurovascular deficits in foot. Brought to casualty for orthopedic management.",
+        "vitals_admission": {"bp": "126/82", "pr": "86", "rr": "18", "temp": "98.4", "spo2": "99", "grbs": "102"},
+        "exam_admission": {
+            "pallor": "Absent", "icterus": "Absent", "edema": "Absent", "cyanosis": "Absent", "clubbing": "Absent",
+            "cvs": "S1 S2 heard, normal",
+            "rs": "Vesicular breath sounds, clear",
+            "abdomen": "Soft, non-tender",
+            "cns": "Conscious, oriented",
+            "local_exam": "Right Knee: Tense hemarthrosis with gross swelling and anterior ecchymosis. A distinct, palpable transverse defect / gap (approx 2cm) felt over mid-patella with extreme bony tenderness and crepitus. Active knee extension completely absent; active Straight Leg Raise (SLR) test impossible (extensor disruption). Distal neurovascular status: Dorsalis pedis and posterior tibial pulses brisk (+2). Sensation over dorsal and plantar foot intact."
+        },
+        "pathology": {
+            "category": "Pre-Operative Orthopedic Hematology & Coagulation",
+            "items": [
+                {"name": "Hemoglobin", "result_value": "14.6", "unit": "g/dL", "reference_range": "13.0 - 17.0", "flag": "NORMAL"},
+                {"name": "Total Leucocyte Count (TLC)", "result_value": "9800", "unit": "cells/cumm", "reference_range": "4000 - 11000", "flag": "NORMAL"},
+                {"name": "Platelet Count", "result_value": "270000", "unit": "/µL", "reference_range": "150000 - 450000", "flag": "NORMAL"},
+                {"name": "Prothrombin Time (PT)", "result_value": "12.6", "unit": "seconds", "reference_range": "11 - 14", "flag": "NORMAL"},
+                {"name": "INR", "result_value": "1.01", "unit": "-", "reference_range": "0.8 - 1.2", "flag": "NORMAL"},
+                {"name": "Blood Group & Rh Type", "result_value": "B Rh Positive", "unit": "-", "reference_range": "-", "flag": "NORMAL"}
+            ]
+        },
+        "biochemistry": {
+            "category": "Renal & Electrolyte Profile",
+            "items": [
+                {"name": "Blood Urea", "result_value": "22", "unit": "mg/dL", "reference_range": "15 - 45", "flag": "NORMAL"},
+                {"name": "Serum Creatinine", "result_value": "0.84", "unit": "mg/dL", "reference_range": "0.6 - 1.2", "flag": "NORMAL"},
+                {"name": "Serum Sodium", "result_value": "139", "unit": "mEq/L", "reference_range": "135 - 145", "flag": "NORMAL"},
+                {"name": "Serum Potassium", "result_value": "4.0", "unit": "mEq/L", "reference_range": "3.5 - 5.0", "flag": "NORMAL"}
+            ]
+        },
+        "microbiology": {
+            "category": "Pre-Operative Serology Panel",
+            "items": [
+                {"name": "HIV 1&2 Rapid Card", "result_value": "Non-Reactive", "unit": "-", "reference_range": "Non-Reactive", "flag": "NORMAL"},
+                {"name": "HBsAg Rapid Card", "result_value": "Non-Reactive", "unit": "-", "reference_range": "Non-Reactive", "flag": "NORMAL"}
+            ]
+        },
+        "radiology_required": True,
+        "radiology_type": "KNEE_XRAY",
+        "radiology_details": {
+            "modality": "CR",
+            "body_part": "RIGHT KNEE",
+            "study_description": "Digital Radiography Right Knee AP and Lateral Views",
+            "findings": "Complete displaced transverse fracture through the mid-substance of the right patella with 6.8 mm separation / distraction of bony fragments. Marked suprapatellar bursal distension and joint effusion (hemarthrosis). Distal femoral condyles and proximal tibial plateau are intact with preserved alignment. No secondary fracture seen.",
+            "impression": "Displaced transverse fracture of right patella with complete disruption of extensor apparatus. Requires Open Reduction and Internal Fixation (ORIF) with Modified Tension Band Wiring (TBW)."
+        },
+        "medications_inpatient": [
+            "ORIF Right Patella with Tension Band Wiring (TBW) under Spinal Anaesthesia",
+            "Inj Cefuroxime 1.5g IV BD x 2 days",
+            "Inj Diclofenac Sodium 75mg IM BD SOS",
+            "Inj Tramadol 50mg in 100ml NS IV infusion SOS for severe breakthrough pain",
+            "Inj Pantoprazole 40mg IV OD",
+            "Limb elevation in above-knee slab; ice packs application Q4H",
+            "Static quadriceps exercises started post-op Day 1"
+        ],
+        "medications_discharge": [
+            "Tab Cefuroxime Axetil 500mg 1-0-1 post food x 5 days",
+            "Tab Zerodol-SP (Aceclofenac + Serratiopeptidase + Paracetamol) 1-0-1 x 5 days",
+            "Tab Pantoprazole 40mg 1-0-0 (B/F) x 7 days",
+            "Tab Shelcal-XT (Calcium + Vit D3) 0-1-0 x 1 month",
+            "Immobilization in long knee brace; non-weight bearing crutch walking for 3 weeks",
+            "Suture removal on Day 12 in Orthopedics OPD"
+        ]
+    },
+    "MUNI_NARAYANAPPA_ANKLE": {
+        "disease_name": "Right Trimalleolar Ankle Fracture-Dislocation (Weber C)",
+        "icd10": "S82.851A",
+        "department": "Orthopedics",
+        "chief_complaints": [
+            "c/o Severe pain, gross deformity, and swelling of right ankle x 4 hours",
+            "c/o Inability to bear weight on right lower limb following slip and fall",
+            "c/o Inability to move right ankle joint"
+        ],
+        "hpi": "62-year-old male with history of accidental slip and fall down two steps at home 4 hours prior to presentation. Sustained sudden rotational twisting injury to right ankle. Complains of excruciating pain, rapid extensive ankle swelling, and gross visible deformity. No open puncture wound. Evaluated and splinted in emergency casualty before admission.",
+        "vitals_admission": {"bp": "138/86", "pr": "84", "rr": "17", "temp": "98.4", "spo2": "98", "grbs": "128"},
+        "exam_admission": {
+            "pallor": "Absent", "icterus": "Absent", "edema": "Absent", "cyanosis": "Absent", "clubbing": "Absent",
+            "cvs": "S1 S2 heard, normal",
+            "rs": "Bilateral vesicular breath sounds, clear",
+            "abdomen": "Soft, non-tender",
+            "cns": "Conscious, oriented",
+            "local_exam": "Right Ankle: Gross valgus and posterior deformity with prominent medial malleolar skin tenting. Tense bimalleolar swelling with ecchymosis. Severe tenderness over distal fibula, medial malleolus, and posterior tibial rim. Closed injury (skin intact, no fracture blisters). Distal neurovascular: Dorsalis pedis and posterior tibial pulses palpable (+2), capillary refill < 2 secs, sensation in all toes intact."
+        },
+        "pathology": {
+            "category": "Pre-Operative Ankle Fracture Hematology",
+            "items": [
+                {"name": "Hemoglobin", "result_value": "13.0", "unit": "g/dL", "reference_range": "13.0 - 17.0", "flag": "NORMAL"},
+                {"name": "Total Leucocyte Count (TLC)", "result_value": "8900", "unit": "cells/cumm", "reference_range": "4000 - 11000", "flag": "NORMAL"},
+                {"name": "Platelet Count", "result_value": "240000", "unit": "/µL", "reference_range": "150000 - 450000", "flag": "NORMAL"},
+                {"name": "Prothrombin Time (PT)", "result_value": "12.8", "unit": "seconds", "reference_range": "11 - 14", "flag": "NORMAL"},
+                {"name": "INR", "result_value": "1.02", "unit": "-", "reference_range": "0.8 - 1.2", "flag": "NORMAL"}
+            ]
+        },
+        "biochemistry": {
+            "category": "Renal Function & Diabetic Screening",
+            "items": [
+                {"name": "Blood Urea", "result_value": "32", "unit": "mg/dL", "reference_range": "15 - 45", "flag": "NORMAL"},
+                {"name": "Serum Creatinine", "result_value": "1.02", "unit": "mg/dL", "reference_range": "0.6 - 1.2", "flag": "NORMAL"},
+                {"name": "HbA1c (Glycated Hemoglobin)", "result_value": "6.8", "unit": "%", "reference_range": "< 5.7 (Good control)", "flag": "HIGH"},
+                {"name": "Random Blood Glucose", "result_value": "128", "unit": "mg/dL", "reference_range": "70 - 140", "flag": "NORMAL"}
+            ]
+        },
+        "microbiology": {
+            "category": "Routine Pre-Surgical Screen",
+            "items": [
+                {"name": "HIV 1&2 Rapid Card", "result_value": "Non-Reactive", "unit": "-", "reference_range": "Non-Reactive", "flag": "NORMAL"},
+                {"name": "HBsAg Rapid Card", "result_value": "Non-Reactive", "unit": "-", "reference_range": "Non-Reactive", "flag": "NORMAL"}
+            ]
+        },
+        "radiology_required": True,
+        "radiology_type": "ANKLE_XRAY",
+        "radiology_details": {
+            "modality": "CR",
+            "body_part": "RIGHT ANKLE",
+            "study_description": "Digital Radiography Right Ankle Joint AP, Lateral, and Mortise Views",
+            "findings": "Trimalleolar fracture of right ankle: Displaced oblique fracture of distal fibula above syndesmosis (Danis-Weber Type C), displaced transverse fracture of medial malleolus with 4.2 mm gap, and posterior malleolar triangular lip fracture involving 25% of tibial plafond. Lateral talar subluxation with widening of medial clear space.",
+            "impression": "Right Trimalleolar Ankle Fracture-Subluxation (Danis-Weber C / Lauge-Hansen SER IV). Unstable mortise requiring Open Reduction and Internal Fixation (ORIF) with plate and screw osteosynthesis."
+        },
+        "medications_inpatient": [
+            "ORIF Right Ankle (Distal fibula 1/3 tubular plate + Medial malleolar 4.0mm cancellous lag screws) under spinal anaesthesia",
+            "Inj Ceftriaxone 1g IV BD x 3 days",
+            "Inj Tramadol 50mg IV in 100ml NS SOS",
+            "Inj Dynapar (Diclofenac 75mg) IM BD",
+            "Tab Serratiopeptidase 10mg 1-0-1 (anti-edema)",
+            "Inj Pantoprazole 40mg IV OD",
+            "Limb elevation on Braun's Bohler frame; below-knee back slab support"
+        ],
+        "medications_discharge": [
+            "Tab Cefixime (Taxim-O) 200mg 1-0-1 x 5 days",
+            "Tab Zerodol-P (Aceclofenac + Paracetamol) 1-0-1 x 5 days",
+            "Tab Serratiopeptidase 10mg 1-0-1 x 5 days",
+            "Tab Pantoprazole 40mg 1-0-0 (B/F) x 7 days",
+            "Below-knee synthetic fiber cast; strictly non-weight bearing with walker/crutches x 6 weeks",
+            "Orthopedic clinic review and suture inspection in 14 days"
+        ]
     }
 }
 
@@ -570,9 +1010,9 @@ class ClinicalEngine:
             violations.append(f"Invalid clinical profile key: {profile_key}")
             return violations
 
-        # Gender validation (e.g. LSCS / Pregnancy must be Female)
-        if profile_key == "TERM_PREGNANCY_LSCS" and patient.gender != "Female":
-            violations.append("Clinical contradiction: Obstetric LSCS assigned to non-female patient.")
+        # Gender validation (e.g. LSCS / Pregnancy / Gynecologic conditions must be Female)
+        if profile_key in ["TERM_PREGNANCY_LSCS", "GADEMMA_AUB", "MARY_STELLA_ANC"] and patient.gender != "Female":
+            violations.append("Clinical contradiction: Obstetric/Gynecologic condition assigned to non-female patient.")
 
         # Age validation
         if profile_key == "TERM_PREGNANCY_LSCS" and (patient.age < 18 or patient.age > 45):
@@ -1318,6 +1758,52 @@ class ClinicalEngine:
                     "Reactive Parapneumonic Pleural Effusion (ICD-10: J90)",
                     "Transient Stress-Induced Hyperglycemia (ICD-10: R73.09)"
                 ]
+            elif profile_key == "GADEMMA_AUB":
+                sec_diagnoses = [
+                    "Endometrial Hyperplasia without atypia (ICD-10: N85.0)",
+                    "Microcytic Hypochromic Iron Deficiency Anemia (ICD-10: D50.9)"
+                ]
+            elif profile_key == "MARY_STELLA_ANC":
+                sec_diagnoses = [
+                    "Gestational Hypothyroidism on replacement therapy (ICD-10: O99.284)",
+                    "Physiological Edema of Pregnancy (ICD-10: O12.0)"
+                ]
+            elif profile_key == "BHARATH_TBI":
+                sec_diagnoses = [
+                    "Right Parietal Scalp Contused Lacerated Wound - Sutured (ICD-10: S01.01XA)",
+                    "Post-Traumatic Cephalea (ICD-10: G44.3)"
+                ]
+            elif profile_key == "NAGARAJA_SDH":
+                sec_diagnoses = [
+                    "Transient Secondary Left Hemiparesis - Resolved (ICD-10: G81.92)",
+                    "Essential Hypertension Stage-1 (ICD-10: I10)"
+                ]
+            elif profile_key == "ANIL_KUMAR_FRACTURE":
+                sec_diagnoses = [
+                    "Right Knee Traumatic Hemarthrosis (ICD-10: M25.061)",
+                    "Right Lower Extremity Contusion (ICD-10: S80.01XA)"
+                ]
+            elif profile_key == "MUNI_NARAYANAPPA_ANKLE":
+                sec_diagnoses = [
+                    "Dislocation of Right Ankle Joint - Reduced (ICD-10: S93.001A)",
+                    "Type 2 Diabetes Mellitus - Controlled (ICD-10: E11.9)"
+                ]
+
+            proc_list = ["Conservative inpatient medical management"]
+            if profile_key == "TERM_PREGNANCY_LSCS":
+                proc_list = ["Emergency LSCS under spinal anaesthesia"]
+            elif profile_key == "GADEMMA_AUB":
+                proc_list = ["Diagnostic & Therapeutic Dilatation and Curettage (D&C)", "Endometrial Biopsy"]
+            elif profile_key == "BHARATH_TBI":
+                proc_list = ["Neuro-ICU Protocol & Cerebral Anti-Edema Therapy", "Scalp Laceration Debridement & Primary Closure"]
+            elif profile_key == "NAGARAJA_SDH":
+                proc_list = ["Emergency Right Fronto-Parietal Burr-Hole Craniostomy & Evacuation of Chronic Subdural Hematoma", "Subdural Closed Suction Drain Placement"]
+            elif profile_key == "ANIL_KUMAR_FRACTURE":
+                proc_list = ["Open Reduction and Internal Fixation (ORIF) Right Patella with Modified Tension Band Wiring (TBW) under Spinal Anaesthesia"]
+            elif profile_key == "MUNI_NARAYANAPPA_ANKLE":
+                proc_list = ["Open Reduction and Internal Fixation (ORIF) Right Ankle (Distal Fibula Plate + Medial Malleolus Screw Fixation) under Spinal Anaesthesia"]
+            elif profile_key == "MARY_STELLA_ANC":
+                proc_list = ["High-Risk Antenatal Fetal Surveillance & Biophysical Profile", "Obstetric Doppler Ultrasound"]
 
             discharge_summary = DischargeSummary(
                 patient_id=patient.id,
@@ -1325,7 +1811,7 @@ class ClinicalEngine:
                 final_diagnosis=profile["disease_name"],
                 icd10_code=profile["icd10"],
                 secondary_diagnoses=sec_diagnoses,
-                procedures_done=["Emergency LSCS under spinal anaesthesia"] if profile_key == "TERM_PREGNANCY_LSCS" else ["Conservative inpatient medical management"],
+                procedures_done=proc_list,
                 clinical_summary_course=f"Patient admitted with {profile['disease_name']}. Evaluated thoroughly with relevant lab and radiological investigations. Treated as per standard hospital protocols. Responded well to medical therapy. Afebrile and hemodynamically stable at the time of discharge.",
                 condition_at_discharge="Recovered & Hemodynamically Stable",
                 discharge_vitals={
